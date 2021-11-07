@@ -17,11 +17,19 @@
         <div class="mb-3">
             <label for="price" class="form-label">Price :</label>
             <input type="text" class="form-control" id="price" name="price" >
-          </div>
-          <div class="mb-3">
+        </div>
+        <div class="mb-3">
             <label for="image" class="form-label">Image :</label>
             <input type="file" class="form-control" id="image" name="image">
+        </div>
+        <div class="mb-3">
+          <div class="dropdown-menu ">
+            @foreach ($categories as $item)
+            <a class="dropdown-item" >{{ $item['name'] }}</a>
+            @endforeach  
           </div>
+        </div> 
+          
        
         <button type="submit" class="btn btn-primary">Add</button>
       </form>

@@ -16,3 +16,4 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/ADD', [ProductController::class, 'newProduct'])->name('product.new');
 Route::post('/ADD', [ProductController::class, 'saveProduct'])->name('product.save');
+Route::get('/Browse', [ProductController::class, 'listProducts'])->name('product.list');

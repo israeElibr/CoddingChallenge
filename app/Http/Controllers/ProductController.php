@@ -23,12 +23,19 @@ class ProductController extends Controller
      $description=$request->get('description');
      $price=$request->get('price');
      $image=$request->files->get('image');
+     
      $this->productService->addProduct($name, $description, $price, $image, 3);
+
      return("bien ajouté");
     }
 
     public function newProduct(){
-        return view('AddProduct');
+        $categories= $this->categoryRepository->getAll();
+        return view('AddProduct',['categories'=>$categories]);
+
     }
-   
+    public function listProducts(){
+        $categories= $this->categoryRepository->getAll();
+        return view('BrowseProduct',['categories'=>$categories]);
+    }
 }
