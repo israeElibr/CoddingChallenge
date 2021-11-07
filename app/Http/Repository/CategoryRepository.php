@@ -14,4 +14,8 @@ class CategoryRepository {
     public function delete(int $id) {
         return Category::destroy($id);
     }
+    public function getAll() {
+      return Category::all();
+    }
+
 }

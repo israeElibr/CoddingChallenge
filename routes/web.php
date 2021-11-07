@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/ADD', [ProductController::class, 'newProduct'])->name('product.new');
+Route::post('/ADD', [ProductController::class, 'saveProduct'])->name('product.save');
