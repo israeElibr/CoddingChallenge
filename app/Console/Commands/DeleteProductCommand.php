@@ -3,38 +3,39 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Http\Service\CategoryService;
+use App\Http\Service\ProductService;
 
-class DeleteCategoryCommand extends Command
+
+class DeleteProductCommand extends Command
 {
-    private CategoryService $categoryService;
-    
+    private ProductService $productService;
+
 
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'DeleteCategory {id}';
+    protected $signature = 'DeleteProduct {id}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Delete category';
+    protected $description = 'Delete product';
 
     /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct(CategoryService $categoryService)
+    public function __construct(ProductService $productService)
     {   
         parent::__construct();
-        $this->categoryService = $categoryService;
-    }
+        $this->productService = $productService;
 
+    }
     /**
      * Execute the console command.
      *
@@ -42,8 +43,8 @@ class DeleteCategoryCommand extends Command
      */
     public function handle()
     {
-        $categoryId = $this->argument('id');
-        $result = $this->categoryService->deleteCategory($categoryId);
+        $productId = $this->argument('id');
+        $result = $this->productService->deleteProduct($productId);
         if($result === false) {
 
             return Command::FAILURE;

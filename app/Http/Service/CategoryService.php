@@ -36,7 +36,7 @@ class CategoryService
         $category = $this->categoryRepository->findById($id);
         if($category === null) {
 
-            dd("makaynach");
+            dd("not exist");
         }
 
        return $this->categoryRepository->delete($id);
